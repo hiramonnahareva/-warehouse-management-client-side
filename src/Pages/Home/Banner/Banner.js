@@ -4,7 +4,7 @@ import image from '../../../Original_11860_Herbs-and-Spices.jpg'
 const Banner = () => {
     return (
         <div>
-            <img src={image} alt="" />
+            <img className='w-full' src={image} alt="" />
         </div>
     );
 };

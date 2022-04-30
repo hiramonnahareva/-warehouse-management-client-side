@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import CustomLink from '../../../Hooks/CustomLink';
-import image from '../../../logo.svg';
+import image from '../../../star-anise-isolated-on-white-vector-21551190.png';
 import { FaBars } from 'react-icons/fa';
 import {CgClose} from 'react-icons/cg';
 
@@ -13,15 +12,14 @@ const Header = () => {
        
         <div className='flex items-center justify-between'>
             <span className='text-2xl font-[popins] cursor-pointer'>
-            <img src={image} className='h-10 inline' alt="" />
-            LOGO
+            <img src={image} className='h-10 inline px-2' alt="" />
+            STAR ANISE
             </span>
-            <span className='text-3xl cursor-pointer md:hidden block mx-2'>
+            <span className='text-2xl cursor-pointer md:hidden block mx-2'>
             <button onClick={handleMenu}> {click ? <CgClose/> : <FaBars/>}</button>
-
                 </span>
             </div>
-            <ul className={`md:flex md:items-center z-[-1] md:z-auto md:static absolute bg-black w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 ${click? '': 'top-[-400px]'} transition-all ease-in`}>
+            <ul className={`md:flex md:items-center z-[1] md:z-auto md:static absolute bg-black w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0  ${click ? 'top-20 opacity-100 z-[1]': 'top-[-400px]'} transition-all ease-in`}>
            <li className='mx-4 my-6 md:my-0'> <CustomLink className='text-xl hover:text-amber-700 duration-500' to='/home'>HOME</CustomLink> </li>
            <li className='mx-4 my-6 md:my-0'> <CustomLink className='text-xl hover:text-amber-700 duration-500' to='/inventory'>INVENTORY</CustomLink> </li>
            <li className='mx-4 my-6 md:my-0'> <CustomLink className='text-xl hover:text-amber-700 duration-500' to='/blogs'>BLOGS</CustomLink> </li>
