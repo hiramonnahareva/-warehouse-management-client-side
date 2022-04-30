@@ -1,28 +1,72 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Link } from 'react-router-dom';
 import { auth } from '../../../firebase.init';
 
 const Register = () => {
-    const [createUserWithEmailAndPassword, user, loading, error ] = useCreateUserWithEmailAndPassword(auth);
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('')
+    const [error, setError] = useState('')
+    const [createUserWithEmailAndPassword, user, loading,userError] = useCreateUserWithEmailAndPassword(auth);
+
+
+
+ 
+    const handleName = event => { 
+        setName( event.target.value);
+    }
+
+    const handleEmail = event => {
+        setEmail( event.target.value)
+    }
+  
+    const handlePassword = event => {
+        setPassword(event.target.value)
+    }
+    const handleConfirmPassword = event => {
+        setConfirmPassword(event.target.value)
+    }
+        const handleFormSubmit = event => {
+        event.preventDefault();
+          // for email
+        if (!/\S+@\S+\.\S+/.test(email)){
+            return alert('email is not valid')
+        }
+       // for password
+       if (!/(?=.{8,})/.test(password)){
+        return alert('Password must be more than 7 character')
+    }
+    // for confirm password
+    if(password !== confirmPassword){
+        return alert('password not matched')
+    }
+    createUserWithEmailAndPassword(email, password)
+    }
+
+
     return (
         <div className=' flex justify-center'>
-                <div className='bg-amber-400 mt-10 '>
+                <div className='bg-amber-500 mt-10 '>
                 <h2 className='text-center text-3xl py-5 font-serif font-bold text-amber-800'>Register</h2>
-           <form className='py-2 bg-amber-400 px-6 '>
-                <label htmlFor="First Name" className='text-white pl-2'>First Name</label>
+           <form onSubmit={handleFormSubmit} className='py-2 bg-gradient-to-b from-amber-500 to-yellow-500 px-6 '>
+                <label htmlFor="Name" className='text-white pl-2'>Name</label>
                 <br />
-                <input className='w-[100%] px-4 py-2 m-1' type="text" placeholder='Your First Name'/>
-                {/* <label htmlFor="Last Name" className='text-white'>Last Name</label>
-                <input className='inline  py-2 px-4 m-1' type="text" placeholder='Your Last Name'/> */}
+                <input onChange={handleName} className='w-[100%] px-4 py-2 m-1' type="text" placeholder='Your Name'/>
                 <label htmlFor="Email" className='text-white pl-2'>Email</label>
                 <br />
-                <input className='w-[100%] py-2 m-1 px-4' type="eamil"  required/>
+                <input onChange={handleEmail} className='w-[100%] py-2 m-1 px-4' type="eamil" placeholder='your email' required/>
                 <label htmlFor="Password" className='text-white pl-2'>Password</label>
                 <br />
-                <input className='w-[100%] py-2 m-1 px-4' type="password" required />
+                <input onChange={handlePassword} className='w-[100%] py-2 m-1 px-4' type="password" placeholder='your Password' required />
+                <label htmlFor="confirm Password" className='text-white pl-2'>Confirm Password</label>
+                <br />
+                <input onChange={handleConfirmPassword} className='w-[100%] py-2 m-1 px-4' type="password" placeholder='Confirm Password' required />
                <div className='flex justify-center my-4'>
-               <input className='py-2 px-5 border-2 rounded-full border-amber-700' type="submit" value="submit" />
+               <input className='py-2 px-7 border-2 rounded-full hover:bg-amber-500 hover:border-amber-500 hover:text-white border-amber-700 transition-all hover:drop-shadow-lg ease-in' type="submit" value="submit" />
                </div>
+              <span> New To Here? <Link to='/login'>Please Login</Link></span>
                <div className='flex items-center'>
                    <div className='w-[50%] border-b-2 border-dotted border-amber-700'>
                </div>

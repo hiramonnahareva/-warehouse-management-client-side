@@ -13,7 +13,7 @@ const Header = () => {
         <div className='flex items-center justify-between'>
             <span className='text-2xl font-[popins] cursor-pointer'>
             <img src={image} className='h-10 inline px-2' alt="" />
-            STAR ANISE
+           <span> STAR ANISE</span>
             </span>
             <span className='text-2xl cursor-pointer md:hidden block mx-2'>
             <button onClick={handleMenu}> {click ? <CgClose/> : <FaBars/>}</button>
