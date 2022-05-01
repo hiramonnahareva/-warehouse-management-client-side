@@ -3,8 +3,12 @@ import CustomLink from '../../../Hooks/CustomLink';
 import image from '../../../star-anise-isolated-on-white-vector-21551190.png';
 import { FaBars } from 'react-icons/fa';
 import {CgClose} from 'react-icons/cg';
+import { auth } from '../../../firebase.init';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { signOut } from 'firebase/auth';
 
 const Header = () => {
+    const [user] = useAuthState(auth);
     const [click, setClick] = useState(false);
     const handleMenu = () => setClick (!click);
     return (
@@ -23,7 +27,12 @@ const Header = () => {
            <li className='mx-4 my-6 md:my-0'> <CustomLink className='text-xl hover:text-amber-700 duration-500' to='/home'>HOME</CustomLink> </li>
            <li className='mx-4 my-6 md:my-0'> <CustomLink className='text-xl hover:text-amber-700 duration-500' to='/inventory'>INVENTORY</CustomLink> </li>
            <li className='mx-4 my-6 md:my-0'> <CustomLink className='text-xl hover:text-amber-700 duration-500' to='/blogs'>BLOGS</CustomLink> </li>
-           <li className='mx-4 my-6 md:my-0'> <CustomLink className='text-xl hover:text-amber-700 duration-500' to='/manageItem'>MANAGE ITEM</CustomLink> </li>
+           <li className='mx-4 my-6 md:my-0'> <CustomLink className='text-xl hover:text-amber-700 duration-500' to='/manageItem'>MANAGE ITEM</CustomLink></li>
+           <li className='mx-4 my-6 md:my-0'>{ user ?
+                <button className='text-xl hover:text-amber-700 duration-500' onClick={()=>signOut(auth)}>SIGNOUT</button> :
+                <CustomLink className='text-xl hover:text-amber-700 duration-500' to='/login'>LOGIN</CustomLink>
+           }
+           </li>
             </ul>
             </nav>
     );
