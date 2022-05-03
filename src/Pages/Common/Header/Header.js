@@ -27,11 +27,21 @@ const Header = () => {
            <li className='mx-4 my-6 md:my-0'> <CustomLink className='text-xl hover:text-amber-700 duration-500' to='/home'>HOME</CustomLink> </li>
            <li className='mx-4 my-6 md:my-0'> <CustomLink className='text-xl hover:text-amber-700 duration-500' to='/inventory'>INVENTORY</CustomLink> </li>
            <li className='mx-4 my-6 md:my-0'> <CustomLink className='text-xl hover:text-amber-700 duration-500' to='/blogs'>BLOGS</CustomLink> </li>
-           <li className='mx-4 my-6 md:my-0'> <CustomLink className='text-xl hover:text-amber-700 duration-500' to='/manageItem'>MANAGE ITEM</CustomLink></li>
-           <li className='mx-4 my-6 md:my-0'>{ user ?
+           {/* <li className='mx-4 my-6 md:my-0'> <CustomLink className='text-xl hover:text-amber-700 duration-500' to='/manageItem'>MANAGE ITEM</CustomLink></li> */}
+           <li className='my-6 md:my-0'>
+               {
+                   user && <ul className={`md:flex md:items-center `}>
+                    <li className='mx-4 my-6 md:my-0'> <CustomLink className='text-xl hover:text-amber-700 duration-500' to='/abbNew'>ADD ITEM</CustomLink></li>
+                    {/* <li className='mx-4 my-6 md:my-0'> <CustomLink className='text-xl hover:text-amber-700 duration-500' to='/items/:itemId'>MANAGE ITEM</CustomLink></li> */}
+                   </ul>
+               }
+                 </li>
+               <li>
+               { user ?
                 <button className='text-xl hover:text-amber-700 duration-500' onClick={()=>signOut(auth)}>SIGNOUT</button> :
                 <CustomLink className='text-xl hover:text-amber-700 duration-500' to='/login'>LOGIN</CustomLink>
            }
+         
            </li>
             </ul>
             </nav>

@@ -7,6 +7,7 @@ import {AiOutlineEyeInvisible} from 'react-icons/ai'
 import { SpinnerRound } from 'spinners-react';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast, ToastContainer } from 'react-toastify';
+import SocialLogin from '../SocialLogin/SocialLogin';
 
 const Register = () => {
     const [email, setEmail] = useState('')
@@ -24,11 +25,11 @@ const Register = () => {
         navigate(from, { replace: true })
         }
         },[user])
-    if (hookError) {
-        return (
-            toast('error')
-        );
-      }
+    // if (hookError|| error) {
+    //     return (
+    //         toast('error')
+    //     );
+    //   }
       if (loading) {
         return <div className='absolute top-[50%] right-[50%]'><SpinnerRound /></div>;
       }
@@ -85,7 +86,7 @@ const Register = () => {
                 <div className='relative'>
                 <input onBlur={handleConfirmPassword} className='w-[100%] py-2 m-1 px-4' type={showComfirmPass? "text" : "password"} placeholder='Confirm Password' required /><p onClick={()=>setShowComfirmPass(!showComfirmPass)} className='absolute top-4 right-3'>{showComfirmPass? <AiOutlineEyeInvisible/> :  <BsFillEyeFill className='text-gray-700' />}</p>
                 </div>
-                {error ? error : ''}
+
                <div className='flex justify-center my-4'>
                <input className='py-2 px-7 border-2 rounded-full hover:bg-amber-500 hover:border-amber-500 hover:text-white border-amber-700 transition-all hover:drop-shadow-lg ease-in' type="submit" value="submit" />
                </div>
@@ -97,6 +98,9 @@ const Register = () => {
                <div className='w-[50%] border-b-2 border-dotted border-amber-700'> 
                </div>
                </div>
+               <div className='flex justify-center pt-5'>
+                       <span className='bg-white rounded-full p-1'><SocialLogin ></SocialLogin></span>
+                       </div>
             </form>
         </div>
     </div>

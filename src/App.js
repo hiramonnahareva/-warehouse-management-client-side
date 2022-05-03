@@ -6,14 +6,16 @@ import Register from './Pages/Login/Register/Register';
 import Login from './Pages/Login/Login/Login';
 import Inventory from './Pages/Inventory/Inventory';
 import RequireAuth from './RequireAuth/RequireAuth';
-import New from './Pages/New';
+import Blogs from './Pages/Blogs/Blogs';
+import AddItem from './Pages/AddItem/AddItem';
+import ManageItem from './ManageItem/ManageItem';
+
 
 function App() {
   return (
     <div className="App">
       
       <Header></Header>
-      <New></New>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
@@ -22,8 +24,19 @@ function App() {
          <Inventory></Inventory>
         </RequireAuth>
         }></Route>
+        <Route path='/abbNew' element={ 
+        <RequireAuth>
+         <AddItem></AddItem>
+        </RequireAuth>
+        }></Route>
+        <Route path='/items/:itemId' element={ 
+        <RequireAuth>
+         <ManageItem></ManageItem>
+        </RequireAuth>
+        }></Route>
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
+        <Route path='/blogs' element={<Blogs></Blogs>}></Route>
       </Routes>
     </div>
   );
