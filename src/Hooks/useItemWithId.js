@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 
-const useItemWithId = itemId => {
+const useItemWithId = _id => {
     const [item, setItem] = useState({})
     useEffect(()=>{
-        const url = `http://localhost:5000/items/${itemId}`
+        const url = `http://localhost:5000/items/${_id}`
         fetch(url)
         .then(res => res.json())
-        .then(data => console.logsetItem(data))
-    }, [itemId])
+        .then(data => console.log(data))
+    }, [_id])
     return [item];
 };
 export default useItemWithId;

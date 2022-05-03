@@ -4,6 +4,8 @@ import useItems from '../../../Hooks/useItems';
 import Banner from '../Banner/Banner';
 import Item from './Item';
 import {SpinnerRound} from 'spinners-react';
+import Extra1 from '../ExtraSection/Extra1/Extra1';
+import Extra2 from '../ExtraSection/Extra2/Extra2';
 
 
 const Home = () => {
@@ -21,7 +23,10 @@ const Home = () => {
                items.slice(0, 6).map(item =><Item key={item._id} item={item}></Item>)
            }
            </div>
+               <Extra1></Extra1>
+               <Extra2></Extra2>
            </div>
+
        }
        </div>
        );

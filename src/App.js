@@ -9,6 +9,8 @@ import RequireAuth from './RequireAuth/RequireAuth';
 import Blogs from './Pages/Blogs/Blogs';
 import AddItem from './Pages/AddItem/AddItem';
 import ManageItem from './ManageItem/ManageItem';
+import Footer from './Pages/Common/Footer/Footer';
+import NotFound from './Pages/Common/NotFound/NotFound';
 
 
 function App() {
@@ -29,7 +31,7 @@ function App() {
          <AddItem></AddItem>
         </RequireAuth>
         }></Route>
-        <Route path='/items/:itemId' element={ 
+        <Route path='/items/:_id' element={ 
         <RequireAuth>
          <ManageItem></ManageItem>
         </RequireAuth>
@@ -37,7 +39,9 @@ function App() {
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
+      <Footer></Footer>
     </div>
   );
 }
