@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import useItems from '../../Hooks/useItems';
-// import useItemWithId from '../../Hooks/useItemWithId';
 
 const ManageItem = () => {
    const [items, setItems] = useItems()
@@ -38,7 +37,7 @@ const ManageItem = () => {
   //           .then (data => {
   //               console.log ('success',data);
   //               alert ('user added successfully');
-  //               event.target.reset();
+  //               quentity.reset();
   //           })
   //     const url = `http://localhost:5000/item/${id}`;
   //  fetch(url)
