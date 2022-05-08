@@ -58,9 +58,9 @@ const Blogs = () => {
 </div>
 </div>
 <div>
-<h2 className='text-2xl text-amber-700 pb-2 text-center'>Question-3: What is the purpose of jwt and how does it work?</h2>
+<h2 className='text-2xl text-amber-700 py-5 text-center'>Question-3: What is the purpose of jwt and how does it work?</h2>
 <div className="flex justify-center">
-<p className='w-[50%]'>JWT, or JSON Web Token, is an open standard used to share security information between two parties  1.client and 2.server.JWTS differ from other web tokens in that they contain a set of claims. Claims are used to transmit information between two parties. What these claims are depends on the use case at hand. For example, a claim may assert who issued the token, how long it is valid for, or what permissions the client has been granted.</p>
+<p className='pb-5 w-[50%] text-justify'>JWT, or JSON Web Token, is an open standard used to share security information between two parties  1.client and 2.server.JWTS differ from other web tokens in that they contain a set of claims. Claims are used to transmit information between two parties. What these claims are depends on the use case at hand. For example, a claim may assert who issued the token, how long it is valid for, or what permissions the client has been granted.</p>
 </div>
 </div>
 </>

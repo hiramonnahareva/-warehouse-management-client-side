@@ -3,10 +3,10 @@ import { useEffect, useState } from 'react';
 const useItems = () => {
     const [items , setItems] = useState([]);
     useEffect(()=> {
-        fetch('https://frozen-garden-74574.herokuapp.com/items')
+        fetch('https://frozen-garden-74574.herokuapp.com/item')
         .then (res => res.json())
         .then (data => setItems (data))
     }, []);
-    return [items , setItems]
+    return [items, setItems]
 };
 export default useItems;

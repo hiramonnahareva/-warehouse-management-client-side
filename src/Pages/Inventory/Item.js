@@ -15,8 +15,8 @@ const Item = ({item}) => {
             <p className='text-[17px] text-gray-900 font-light lg:leading-20 pb-2 text-justify'>{descrption}</p>
            </div>
            <div className='flex justify-center'>
-           <Link to={`/items/${_id}`} className='border-2 rounded-full px-3 lg:px-7 py-2 border-amber-700 lg:text-xl text-amber-700 hover:bg-amber-500 hover:text-white transition-all ease-in hover:border-amber-500 mb-4'>Manage Item</Link>
-           <button className='border-2 rounded-full px-3 lg:px-7 py-2 border-amber-700 lg:text-xl text-amber-700 hover:bg-amber-500 hover:text-white transition-all ease-in hover:border-amber-500 mb-4'>Delete</button>
+           <Link to={`/item/${item._id}`} className='border-2 rounded-full px-3 lg:px-7 py-2 border-amber-700 lg:text-xl text-amber-700 hover:bg-amber-500 hover:text-white transition-all ease-in hover:border-amber-500 mb-4'>Manage Item</Link>
+           <Link to= {`/update/${item._id}`} className='border-2 rounded-full px-3 lg:px-7 py-2 border-amber-700 lg:text-xl text-amber-700 hover:bg-amber-500 hover:text-white transition-all ease-in hover:border-amber-500 mb-4 ml-4'>UPdate</Link>
            </div>
         </div>
     );

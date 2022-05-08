@@ -15,7 +15,7 @@ const Item = ({item}) => {
            </div>
            <div className='flex justify-center'>
 
-           <Link to className='border-2 rounded-full px-3 lg:px-7 py-2 border-amber-700 lg:text-xl text-amber-700 hover:bg-amber-500 hover:text-white transition-all ease-in hover:border-amber-500 mb-4'>Update</Link>
+           <Link to='/update' className='border-2 rounded-full px-3 lg:px-7 py-2 border-amber-700 lg:text-xl text-amber-700 hover:bg-amber-500 hover:text-white transition-all ease-in hover:border-amber-500 mb-4'>Update</Link>
            </div>
         </div>
     );

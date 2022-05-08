@@ -8,9 +8,10 @@ import Inventory from './Pages/Inventory/Inventory';
 import RequireAuth from './RequireAuth/RequireAuth';
 import Blogs from './Pages/Blogs/Blogs';
 import AddItem from './Pages/AddItem/AddItem';
-import ManageItem from './ManageItem/ManageItem';
 import Footer from './Pages/Common/Footer/Footer';
 import NotFound from './Pages/Common/NotFound/NotFound';
+import ManageItem from './Pages/ManageItem/ManageItem';
+import UpdateItem from './Pages/UpdateItem/UpdateItem';
 
 
 function App() {
@@ -31,7 +32,12 @@ function App() {
          <AddItem></AddItem>
         </RequireAuth>
         }></Route>
-        <Route path='/items/:_id' element={ 
+        <Route path='/update/:id' element={ 
+        <RequireAuth>
+         <UpdateItem></UpdateItem>
+        </RequireAuth>
+        }></Route>
+        <Route path='/item/:id' element={ 
         <RequireAuth>
          <ManageItem></ManageItem>
         </RequireAuth>

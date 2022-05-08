@@ -8,6 +8,7 @@ import { SpinnerRound } from 'spinners-react';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast, ToastContainer } from 'react-toastify';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import { sendEmailVerification } from 'firebase/auth';
 
 const Register = () => {
     const [email, setEmail] = useState('')
@@ -18,7 +19,7 @@ const Register = () => {
     const [showComfirmPass, setShowComfirmPass] = useState(false)
     let navigate = useNavigate();
     let location = useLocation();
-    const [createUserWithEmailAndPassword, user, loading,hookError] = useCreateUserWithEmailAndPassword(auth);
+    const [createUserWithEmailAndPassword, user, loading,hookError] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification: true});
     useEffect(()=>{
         let from = location.state?.from?.pathname || "/";
         if (user) {
@@ -45,7 +46,7 @@ const Register = () => {
     const handleConfirmPassword = event => {
         setConfirmPassword(event.target.value)
     }
-        const handleFormSubmit = event => {
+        const handleFormSubmit = async (event) => {
         event.preventDefault();
        // for password
        if (!/(?=.{8,})/.test(password)){
@@ -58,8 +59,8 @@ const Register = () => {
           position: "top-center",
         })
     }
-    console.log (email, password)
-    createUserWithEmailAndPassword(email, password)
+    await createUserWithEmailAndPassword(email, password);
+    toast('Sent email');
     }
 
 
@@ -67,7 +68,8 @@ const Register = () => {
     <>
             
         <div className=' flex justify-center'>
-                <div className='bg-amber-500 mt-10 '>
+            <ToastContainer></ToastContainer>
+                <div className='bg-amber-500 my-10 '>
                 <h2 className='text-center text-3xl py-5 font-serif font-bold text-amber-800'>Register</h2>
            <form onSubmit={handleFormSubmit} className='py-2 bg-gradient-to-b from-amber-500 to-yellow-500 px-6 '>
                 <label htmlFor="Name" className='text-white pl-2'>Name</label>
@@ -99,7 +101,7 @@ const Register = () => {
                </div>
                </div>
                <div className='flex justify-center pt-5'>
-                       <span className='bg-white rounded-full p-1'><SocialLogin ></SocialLogin></span>
+                       <span className='bg-white rounded-full p-1 pt-2 px-2 '><SocialLogin ></SocialLogin></span>
                        </div>
             </form>
         </div>

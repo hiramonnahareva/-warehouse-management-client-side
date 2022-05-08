@@ -31,7 +31,7 @@ const AddItem = () => {
     const hendleSubmit = event => {
         event.preventDefault();
             console.log (supplierInfo)
-            const url = (`https://frozen-garden-74574.herokuapp.com/items`)
+            const url = (`https://frozen-garden-74574.herokuapp.com/item`)
             fetch(url,{
                 method: 'POST',
                 headers: {
@@ -67,7 +67,7 @@ const AddItem = () => {
       <input onBlur={hendleurl} className="shadow appearance-none border focus:border-amber-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" type="URL" placeholder="url" required/>
     </div>
     <div className="flex items-center justify-center">
-      <input type='submit' className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"/>
+      <input type='submit' value='add item' className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"/>
       
     </div>
   </form>

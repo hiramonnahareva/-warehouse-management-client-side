@@ -17,10 +17,11 @@ const Login = () => {
     let location = useLocation();
     const [showPassword, setShowPassword] = useState(false);
     const [signInWithEmailAndPassword, user, loading, userError] = useSignInWithEmailAndPassword(auth);
-    // const resetPassword = async () => {
-    //     await sendPasswordResetEmail(email);
-    //     toast('Sent email');
-    // }
+    const resetPassword =  () => {
+      sendPasswordResetEmail(auth, email)
+      .then(()=> console.log('email send'))
+        
+    }
 
     useEffect(() => {
         let from = location.state?.from?.pathname || "/";
@@ -28,13 +29,6 @@ const Login = () => {
             navigate(from, { replace: true })
         }
     }, [user])
-
-    
-    // if (userError) {
-    //     return (
-    //         toast('error')
-    //     );
-    // }
     if (loading) {
         return <div className='absolute top-[50%] right-[50%]'><SpinnerRound /></div>;
     }
@@ -54,15 +48,14 @@ const Login = () => {
         if (!/(?=.{8,})/.test(password)) {
             return toast.warn('Password must be more than 8 character')
         }
-        console.log(email, password)
         signInWithEmailAndPassword(email, password)
     }
 
     return (
         <div className=' flex justify-center'>
             <ToastContainer />
-            <div className='bg-amber-500 mt-10 '>
-                <h2 className='text-center text-3xl py-5 font-serif font-bold text-amber-800'>Lonig</h2>
+            <div className='bg-amber-500 my-10 '>
+                <h2 className='text-center text-3xl py-5 font-serif font-bold text-amber-800'>Login</h2>
                 <form onSubmit={handleuserSingIn} className='py-2 bg-gradient-to-b from-amber-500 to-yellow-500 px-6 '>
                     <label htmlFor="First Name" className='text-white pl-2'>Name</label>
                     <br />
@@ -77,8 +70,7 @@ const Login = () => {
                     </div>
                     <div className='flex justify-center my-4'>
                         <input className='py-2 px-7 border-2 rounded-full hover:bg-amber-500 hover:border-amber-500 hover:text-white border-amber-700 transition-all hover:drop-shadow-lg ease-in' type="submit" value="submit" />
-                        {/* <button onClick={resetPassword} className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"> Forgot Password?</button> */}
-                        {/* <button className='forgot-pass' onClick={resetPassword}>forgot password</button> */}
+                        <button onClick={resetPassword} className="inline-block align-baseline font-bold text-sm text-blue-700 hover:text-blue-900 mx-5"> Forgot Password?</button>
                     </div>
                     <span> New To Here? <Link to='/register'>Please Register</Link></span>
                     <div className='flex items-center'>
@@ -89,7 +81,7 @@ const Login = () => {
                         </div>
                     </div>
                        <div className='flex justify-center mt-5'>
-                       <span className='bg-white rounded-full p-2 flex'><SocialLogin ></SocialLogin></span>
+                       <span className='bg-white rounded-full p-1 pt-2 px-2  flex'><SocialLogin ></SocialLogin></span>
                        </div>
                 </form>
             </div>

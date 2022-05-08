@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 const useItemWithId = _id => {
     const [item, setItem] = useState({})
     useEffect(()=>{
-        const url = `http://localhost:5000/items/${_id}`
+        const url = `https://frozen-garden-74574.herokuapp.com/item/${_id}`
         fetch(url)
         .then(res => res.json())
         .then(data => console.log(data))
