@@ -1,7 +1,7 @@
-# Spice Warehouse https://spice-warehouse.firebaseapp.com/item/6277876015c2984845e46b12
-## This website has been make for stock spice.I used  tailwind css framework, react router dom, node js, mongodb atlas and authenticate by firebase to  make this website.
-# Live Site link 
-## Backand host link https://frozen-garden-74574.herokuapp.com
+# Spice Warehouse 
+### This website has been make for stock spice.I used  tailwind css framework, react router dom, node js, mongodb atlas and authenticate by firebase to  make this website.
+## Live Site link https://spice-warehouse.firebaseapp.com/item/6277876015c2984845e46b12
+### Backand host link https://frozen-garden-74574.herokuapp.com
 
 ## Pages
 * Home
