@@ -5,7 +5,7 @@ const UpdateItem = () => {
     const {id} = useParams()
     const [item, setItem] = useState ({});
     useEffect (()=> {
-        const url = `http://localhost:5000/item/${id}`;
+        const url = `https://frozen-garden-74574.herokuapp.com/item/${id}`;
         fetch (url)
         .then (res => res.json())
         .then (data =>  setItem(data));
@@ -34,7 +34,7 @@ const UpdateItem = () => {
            const updatedItem = supplierInfo
 
             // send data to server
-            const url = `http://localhost:5000/item/${id}`;
+            const url = `https://frozen-garden-74574.herokuapp.com/item/${id}`;
             fetch (url, {
                 method: 'PUT',
                 headers: {
