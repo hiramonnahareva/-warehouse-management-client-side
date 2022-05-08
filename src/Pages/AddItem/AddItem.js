@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
 
 const AddItem = () => {
     const [supplierInfo , setSupplierInfo] = useState({
@@ -41,10 +42,12 @@ const AddItem = () => {
             })
             .then(res => res.json())
             .then(result => console.log(result))
+            toast('user added successfully');
 
     }
     return (
         <div className='flex justify-center'>
+          <ToastContainer></ToastContainer>
            <div className="w-full max-w-xs">
              <h2 className='text-center my-3 text-3xl font-semibold text-amber-600'>Please Stock New Item</h2>
   <form onSubmit={hendleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">

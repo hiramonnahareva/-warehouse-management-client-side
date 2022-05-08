@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 
 const UpdateItem = () => {
     const {id} = useParams()
@@ -45,7 +46,7 @@ const UpdateItem = () => {
             .then (res => res.json())
             .then (data => {
                 console.log ('success',data);
-                alert ('user added successfully');
+                toast('Update item successfully');
                 event.target.reset();
             })
     
@@ -55,6 +56,7 @@ const UpdateItem = () => {
 
     return (
         <div className='flex justify-center'>
+            <ToastContainer></ToastContainer>
         <div className="w-full max-w-xs">
           <h2 className='text-center my-3 text-3xl font-semibold text-amber-600'>Update Item Information</h2>
 <form onSubmit={handleUpdateItem} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
