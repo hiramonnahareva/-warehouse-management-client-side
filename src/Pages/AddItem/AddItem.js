@@ -42,7 +42,7 @@ const AddItem = () => {
             })
             .then(res => res.json())
             .then(result => console.log(result))
-            toast('user added successfully');
+            toast('Added item successfully');
 
     }
     return (

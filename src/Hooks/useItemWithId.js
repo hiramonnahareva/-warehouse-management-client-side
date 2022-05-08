@@ -6,7 +6,7 @@ const useItemWithId = _id => {
         const url = `https://frozen-garden-74574.herokuapp.com/item/${_id}`
         fetch(url)
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => setItem(data))
     }, [_id])
     return [item];
 };
