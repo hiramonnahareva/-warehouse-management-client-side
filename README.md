@@ -3,6 +3,10 @@
 ## Live Site link https://spice-warehouse.firebaseapp.com/item/6277876015c2984845e46b12
 ### Backand host link https://frozen-garden-74574.herokuapp.com
 
+## Feature
+* Full-stack project 
+* Responsive homepage. 
+* Implement login system. 
 ## Pages
 * Home
 * Inventory
