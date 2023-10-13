@@ -4,9 +4,10 @@
 ### Backand host link https://frozen-garden-74574.herokuapp.com
 
 ## Feature
-* Full-stack project 
+* Full-stack project.
 * Responsive homepage. 
-* Implement login system. 
+* Implement login system.
+* 
 ## Pages
 * Home
 * Inventory
@@ -14,6 +15,7 @@
 * Register
 * Manage item
 * Login
+* 
 ## Tecnology
 * react https://reactjs.org/ v18.1.0
 * tailwind css framework https://tailwindcss.com/ v3
